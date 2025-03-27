@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "jest"
+    "test": "npx jest"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/IanRobertsProgramming/Jenkins-Example-Project/issues"
   },
-  "homepage": "https://github.com/IanRobertsProgramming/Jenkins-Example-Project#readme"
+  "homepage": "https://github.com/IanRobertsProgramming/Jenkins-Example-Project#readme",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.1.0"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  }
 }
