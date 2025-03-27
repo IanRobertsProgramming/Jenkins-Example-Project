@@ -1,5 +1,9 @@
 pipeline {
+    // Define the Jenkins node to run the pipeline on
+    // Useful when you want to test on different OS or configurations 
+    // or just to distribute the load how you want
     agent any 
+
     stages {
         stage('Checkout') {
             steps {
@@ -8,6 +12,7 @@ pipeline {
         }
         stage('Install Dependencies') {
             steps {
+                // Used pm2 (Process Manager) to make starting and stopping the app easier and more reliable
                 bat 'npm install -g pm2'  // Install PM2 globally
                 bat 'npm install'  // Install project dependencies
             }
@@ -19,7 +24,7 @@ pipeline {
         }
         stage('Run Tests') {  
             steps {
-                bat 'npm test'  // Run your test suite if applicable
+                bat 'npm test'  // Run test suite 
             }
         }
         stage('Stop App') {
@@ -28,5 +33,6 @@ pipeline {
                 bat 'pm2 delete my-app'  // Remove it from the process list
             }
         }
+        // Could add more stages here for deployment, notifications, etc.
     }
 }
