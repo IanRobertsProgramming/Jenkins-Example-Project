@@ -1,11 +1,12 @@
 const createServer = require("./index"); // Import the createServer function
 let server;
+let port;
 
 beforeAll(async () => {
   server = createServer();
   await new Promise((resolve, reject) => {
     server.listen(0, () => {
-      // Use 0 to let the system pick an available port
+      port = server.address().port; // Dynamically get the port
       resolve();
     });
   });
@@ -18,14 +19,14 @@ afterAll(() => {
 });
 
 test("GET / should return 200 and contain 'Welcome to the Basic Index Page'", async () => {
-  const response = await fetch("http://localhost:3000"); // Node.js v17+ supports fetch natively
+  const response = await fetch(`http://localhost:${port}`); // Use the dynamic port
   const text = await response.text();
   expect(response.status).toBe(200);
   expect(text).toContain("Welcome to the Basic Index Page");
 });
 
 test("GET /unknown should return 404", async () => {
-  const response = await fetch("http://localhost:3000/unknown");
+  const response = await fetch(`http://localhost:${port}/unknown`);
   const text = await response.text();
   expect(response.status).toBe(404);
   expect(text).toContain("404 Not Found");
