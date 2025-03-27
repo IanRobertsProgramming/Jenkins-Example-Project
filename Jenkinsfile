@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/IanRobertsProgramming/Jenkins-Example-Project.git'
+                git branch: 'main', url: 'https://github.com/IanRobertsProgramming/Jenkins-Example-Project.git'
             }
         }
         stage('Install Dependencies') {
