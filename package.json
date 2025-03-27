@@ -1,0 +1,19 @@
+{
+  "name": "jenkins-example-project",
+  "version": "1.0.0",
+  "description": "Jenkins example project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IanRobertsProgramming/Jenkins-Example-Project.git"
+  },
+  "author": "Ian",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IanRobertsProgramming/Jenkins-Example-Project/issues"
+  },
+  "homepage": "https://github.com/IanRobertsProgramming/Jenkins-Example-Project#readme"
+}
