@@ -1,4 +1,3 @@
-const fetch = require("node-fetch"); // Assuming you are using node-fetch for HTTP requests
 const createServer = require("./index"); // Import the createServer function
 let server;
 
@@ -19,7 +18,7 @@ afterAll(() => {
 });
 
 test("GET / should return 200 and contain 'Welcome to the Basic Index Page'", async () => {
-  const response = await fetch("http://localhost:3000"); // Adjust to use the correct dynamic port if necessary
+  const response = await fetch("http://localhost:3000"); // Node.js v17+ supports fetch natively
   const text = await response.text();
   expect(response.status).toBe(200);
   expect(text).toContain("Welcome to the Basic Index Page");
